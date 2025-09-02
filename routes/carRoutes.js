@@ -1,4 +1,6 @@
 const express = require('express')
+const port = process.env.PORT || 5000 
+
 const { isAdmin, requireLogin } = require('../middleware/authMiddleware');
 const {upload,createCar,getAllCar, getCarById,deleteCar,relatedCar,updatecar,braintreeTokenController,brainTreePaymentController} = require('../controllers/carController');
 const formidable = require('express-formidable')

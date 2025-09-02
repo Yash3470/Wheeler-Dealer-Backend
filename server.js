@@ -8,6 +8,7 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 
@@ -36,6 +37,6 @@ app.use('/api/user', userRoutes);
 app.use('/api/brand', brandRoutes);
 app.use('/api/car', carRoutes);
 
-app.listen(process.env.PORT, () => {
-    console.log(`Car Running on port ${process.env.PORT}`);
+app.listen(PORT, () => {
+    console.log(`Car Running on port ${PORT}`);
 });

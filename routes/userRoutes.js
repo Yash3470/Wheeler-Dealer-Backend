@@ -1,4 +1,6 @@
 const express = require('express');
+const port = process.env.PORT || 5000 
+
 const {registerUser,loginUser,test,adminAuth,myOrders,getAllOrdersController,orderStatusController,updateProfile} = require('../controllers/userControllers');
 const {requireLogin,isAdmin} = require('../middleware/authMiddleware');
 
