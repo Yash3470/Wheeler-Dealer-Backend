@@ -1,5 +1,4 @@
 const express = require('express')
-const port = process.env.PORT || 5000 
 
 const { requireLogin, isAdmin } = require('../middleware/authMiddleware');
 const {createBrand,updateBrand,deleteBrand, getBrand, getBrandById,upload} = require('../controllers/brandController');

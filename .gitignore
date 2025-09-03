@@ -1,4 +1,18 @@
+# dependencies
+node_modules
+
+# environment variables
 .env
-/node_modules
+
+# sensitive files
 controllers/cred.json
-*.json
+
+# logs
+*.log
+
+# system files
+.DS_Store
+Thumbs.db
+
+# Ignore sensitive creds
+server/controllers/cred.json
