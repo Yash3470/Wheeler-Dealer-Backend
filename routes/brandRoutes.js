@@ -1,14 +1,29 @@
-const express = require('express')
-
-const { requireLogin, isAdmin } = require('../middleware/authMiddleware');
-const {createBrand,updateBrand,deleteBrand, getBrand, getBrandById,upload} = require('../controllers/brandController');
+const express = require("express");
+const { requireLogin, isAdmin } = require("../middleware/authMiddleware");
+const {
+  createBrand,
+  updateBrand,
+  deleteBrand,
+  getBrand,
+  getBrandById,
+  upload,
+} = require("../controllers/brandController");
 
 const router = express.Router();
 
-router.get('/getAll-brand',getBrand);
-router.get('/getBrandBtId-brand/:slug',getBrandById);
-router.post('/create-brand',upload.single('brandPictures'),requireLogin, isAdmin,createBrand);
-router.put('/update-brand/:id',requireLogin,isAdmin,updateBrand);
-router.delete('/delete-brand/:id',requireLogin,isAdmin,deleteBrand);
+// ✅ Get all brands
+router.get("/", getBrand);
 
-module.exports = router
+// ✅ Get brand by slug
+router.get("/:slug", getBrandById);
+
+// ✅ Create brand (Admin only)
+router.post("/", upload.single("brandPictures"), requireLogin, isAdmin, createBrand);
+
+// ✅ Update brand (Admin only)
+router.put("/:id", requireLogin, isAdmin, updateBrand);
+
+// ✅ Delete brand (Admin only)
+router.delete("/:id", requireLogin, isAdmin, deleteBrand);
+
+module.exports = router;

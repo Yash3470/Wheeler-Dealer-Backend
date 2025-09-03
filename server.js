@@ -15,10 +15,14 @@ const PORT = process.env.PORT || 5000
 
 // CORS setup
 app.use(cors({
-    origin: process.env.FRONTEND_URL || "*", // set your Vercel URL in env later
+    origin: [
+        "http://localhost:3000",
+        "https://wheeler-dealer-frontend.vercel.app"
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
+
 
 // Body parser
 app.use(express.json());
